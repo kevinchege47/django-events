@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{%block content%}
+<center>
+<h1>Events List </h1><br/>
+{% for event in event_list %}
+{{ event }}
+{% endfor %}
+
+<br/>
+
+<br/><br/>
+
+</center>
+{%endblock%}
