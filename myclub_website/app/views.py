@@ -6,6 +6,19 @@ from .models import *
 from .forms import VenueForm
 from django.http import HttpResponseRedirect
 
+def show_venue(request,venue_id):
+    venue = Venue.objects.get(pk=venue_id)
+    context = {"venue":venue}
+    return render(request,'app/show_venue.html',context)
+    
+
+
+def list_venues(request):
+    venue_list = Venue.objects.all
+    context = {"venue_list":venue_list}
+    return render(request,'app/venue.html',context)
+
+
 def add_venue(request):
     submitted = False
     if request.method == "POST":

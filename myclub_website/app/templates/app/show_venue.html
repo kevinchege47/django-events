@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+
+{%block content%}
+<center>
+<!-- <h1>{{venue.name}} </h1><br/>
+{{venue.address}}-{{venue.zip_code}}<br/>
+{{venue.phone}}<br/>
+<a href={{venue.web}}>{{venue.web}}</a><br/>
+<a href="">{{venue.email_address}}</a><br/> -->
+
+<div class="card border-dark mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{venue.name}}</div>
+    <div class="card-body">
+      <p class="card-title">Phone Number:{{venue.phone}}</p>
+      <a href=""><p class="card-title">{{venue.web}}</p></a>
+      <p class="card-title">{{venue.email_address}}</p>
+    </div>
+
+</center>
+{%endblock%}
