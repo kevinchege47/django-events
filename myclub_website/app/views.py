@@ -6,6 +6,7 @@ from .models import *
 
 def all_events(request):
     event_list = Event.objects.all
+    
     context = {"event_list":event_list}
     return render(request,'app/events_list.html',context)
 

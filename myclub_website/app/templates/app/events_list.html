@@ -1,14 +1,33 @@
 {% extends 'app/base.html' %}
 {%block content%}
-<center>
-<h1>Events List </h1><br/>
-{% for event in event_list %}
-{{ event }}
-{% endfor %}
 
-<br/>
+    <!-- <h1>Events List </h1><br /> -->
 
-<br/><br/>
+    {% for event in event_list %}
 
-</center>
+    <div class="card text-center bg-warning-subtle text-emphasis-warning mb-2">
+        <div class="card-header">
+            {{ event }}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ event.venue }}</h5>
+          <p class="card-text">
+            
+                Date: {{ event.event_date }} <br/>
+                Venue: {{ event.venue }} <br/>
+                Manager: {{ event.manager }} <br/>
+                Description: {{ event.description }} <br/>
+          </p>
+          <a href="#" class="btn btn-primary">RSVP</a>
+        </div>
+      </div>
+    {% endfor %}
+
+
+
+
+    <br />
+
+    <br /><br />
+
 {%endblock%}
