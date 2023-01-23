@@ -5,6 +5,17 @@ from datetime import datetime
 from .models import *
 from .forms import VenueForm,EventForm
 from django.http import HttpResponseRedirect
+# def delete_event(request,event_id):
+
+def update_event(request,venue_id):
+    event = Event.objects.get(pk=venue_id)
+    form = EventForm(request.POST or None,instance=event)
+    if form.is_valid():
+        form.save()
+        return redirect('list-events')
+    context = {"event":event,"form":form}
+    return render(request,'app/update_event.html',context)
+
 
 def add_event(request):
     submitted = False
@@ -49,14 +60,10 @@ def show_venue(request,venue_id):
     context = {"venue":venue}
     return render(request,'app/show_venue.html',context)
     
-
-
 def list_venues(request):
     venue_list = Venue.objects.all
-    
     context = {"venue_list":venue_list}
     return render(request,'app/venue.html',context)
-
 
 def add_venue(request):
     submitted = False
@@ -75,11 +82,8 @@ def add_venue(request):
 
     return render(request,'app/add_venue.html',context)
 
-
-
 def all_events(request):
     event_list = Event.objects.all
-    
     context = {"event_list":event_list}
     return render(request,'app/events_list.html',context)
 

@@ -18,13 +18,10 @@
                 Manager: {{ event.manager }} <br/>
                 Description: {{ event.description }} <br/>
           </p>
-          <a href="#" class="btn btn-primary">RSVP</a>
+          <a href="{% url 'update-event' event.id %}" class="btn btn-primary">Update Event</a>
         </div>
       </div>
     {% endfor %}
-
-
-
 
     <br />
 

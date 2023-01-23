@@ -41,7 +41,7 @@ class EventForm(ModelForm):
             "name":forms.TextInput(attrs={'class':'form-control','placeholder':'Event Name'}),
             "event_date": forms.TextInput(attrs={'class':'form-control','placeholder':'Event Date'}),
             "venue": forms.Select(attrs={'class':'form-select','placeholder':'Venue'}),
-            "manager": forms.Select(attrs={'class':'form-select','placeholder':'Manager'}),
+            "manager": forms.TextInput(attrs={'class':'form-select','placeholder':'Manager'}),
             "description": forms.Textarea(attrs={'class':'form-control','placeholder':'Description'}),
             "attendees": forms.SelectMultiple(attrs={'class':'form-control','placeholder':'Attendees'})
         }
