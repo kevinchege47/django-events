@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+
+{%block content%}
+<center>
+    <h1>Add Event </h1>
+    {% if submitted %}
+    Venue submittted successfuy
+    {% else %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+
+        <input type="submit" value="Submit" class="btn btn-success">
+    </form>
+    {% endif %}
+
+</center>
+{%endblock%}
