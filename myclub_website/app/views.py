@@ -61,15 +61,13 @@ def search_venues(request):
     else:
         return render(request,'app/search_venues.html',context)
     
-
-
 def show_venue(request,venue_id):
     venue = Venue.objects.get(pk=venue_id)
     context = {"venue":venue}
     return render(request,'app/show_venue.html',context)
     
 def list_venues(request):
-    venue_list = Venue.objects.all
+    venue_list = Venue.objects.all().order_by('name')
     context = {"venue_list":venue_list}
     return render(request,'app/venue.html',context)
 
@@ -91,7 +89,8 @@ def add_venue(request):
     return render(request,'app/add_venue.html',context)
 
 def all_events(request):
-    event_list = Event.objects.all
+    event_list = Event.objects.all().order_by('event_date')
+
     context = {"event_list":event_list}
     return render(request,'app/events_list.html',context)
 
