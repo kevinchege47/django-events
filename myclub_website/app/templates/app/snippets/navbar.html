@@ -48,12 +48,20 @@
           <!-- <li class="nav-item btn btn-outline-success">
             <a href="{% url 'login-user' %}">LOGIN</a>
           </li> -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'register-user' %}">Register</a>
+          </li>
+
           {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout-user' %}">
             <button class="btn btn-outline-danger">LOGOUT</button></a>
           </li>
           {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register-user' %}">
+            <button class="btn btn-outline-success">Register</button></a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'login-user' %}">
             <button class="btn btn-outline-success">LOGIN</button></a>
