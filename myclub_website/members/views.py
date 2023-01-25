@@ -11,10 +11,18 @@ def login_user(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.success(request,('Try Again'))
+            messages.success(request,('Wrong Credentials,Try Again'))
             return redirect('login-user')
     else:
         context ={}
         return render(request,'authenticate/login-user.html',context)
+
+def logout_user(request):
+    logout(request)
+    messages.success(request,('You Logged Out'))
+    return redirect('home')
+
+
+
 
 
